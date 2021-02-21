@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pingpong;
+
+option go_package = "github.com/ijsong/grpctest/pb";
+
+/*
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option (gogoproto.protosizer_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+*/
+
+message Ping {
+    string msg = 1;
+}
+
+message Pong {
+    string msg = 2;
+}
+
+service PingPong {
+    rpc Call(Ping) returns (Pong) {}
+}
